@@ -1,0 +1,102 @@
+<?php  
+$arr=$block->getCollection();
+//print_r($arr->getData()); die();
+//$arr=$arrlist['collection'];
+//print_r($arr->getData()); die();
+
+?>
+<?php echo $block->getChildHtml('info');?>
+<?php if ($arr && count($arr)): ?>
+<div class="table-wrapper orders-history">
+    <form class="form" method="post" action="<?php echo $block->getAddUrl()?>">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="col id">
+                        <?php echo __('ID') ?>
+                    </th>
+                    <th scope="col" class="col title">
+                        <?php  echo __('Title') ?>
+                    </th>
+                    <th scope="col" class="col email">
+                        <?php  echo __('Email') ?>
+                    </th>
+                    <th scope="col" class="col create_time">
+                        <?php echo __('create_time') ?>
+                    </th>
+                    <th scope="col" class="col update_time">
+                        <?php echo __('update_time') ?>
+                    </th>
+                    <th scope="col" class="col status">
+                        <?php  echo __('Status') ?>
+                    </th>
+                    <th scope="col" class="col actions">
+                        <?php  echo __('Action') ?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($arr as $data): ?> 
+                <tr>
+                    <td>
+
+                        <?php echo $data['excellence_table_test_id'] ?>
+                    </td>
+                    <td>
+                        <?php echo $data['title'] ?>
+                    </td>
+                    <td>
+                        <?php echo $data['email'] ?>
+                    </td>
+                    <td>
+                        <?php echo $data['creation_time'] ?>
+                    </td>
+                    <td>
+                        <?php echo $data['update_time'] ?>
+                    </td>
+                    <?php 
+       if($data['is_active']==1){
+        $option="Enabled";
+        }
+       else{
+        $option="Disabled";
+        }
+    ?>
+                    <td>
+                        <?php echo $option ?>
+                    </td>
+                    <td>
+                        <a href="<?php echo $block->getEditUrl($data['excellence_table_test_id']);?>">
+                            <?php echo __('Edit');?>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<?php echo $block->getDeleteUrl($data['excellence_table_test_id']); ?>">
+                            <?php echo __('Delete');?>
+                        </a>
+                    </td>
+
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="actions-toolbar">
+            <div class="primary"><button type="submit" class="action submit primary" name="add" id="add"><span><?php echo __('Add New')?></span></button></div>
+        </div>
+
+    </form>
+
+</div>
+<?php if ($block->getPagerHtml()): ?>
+<div class="order-products-toolbar toolbar bottom">
+    <?php echo $block->getPagerHtml('info'); ?>
+</div>
+<?php endif ?>
+<?php else:?>
+<div class="message info empty"><span><?php echo __('No Records Found !!'); ?></span></div>
+<?php endif?> 
+<style>
+.limiter {
+     display: block !important; 
+}
+</style>

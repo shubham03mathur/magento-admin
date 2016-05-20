@@ -1,0 +1,55 @@
+<?php 
+$data = $block->getRowData();
+$data1 = $block->getStatusData();
+if($data1['is_active']== 1)
+{
+    $op1_select="selected";
+    $op2_select="";
+}
+else{
+    $op1_select="";
+    $op2_select="selected";
+}
+?>
+<div class="block block-customer-login">
+    <div class="block-title">
+        <h2><?php echo __('Add/Edit Data'); ?></h2>
+    </div>
+    <div class="block-content" aria-labelledby="block-heading">
+        <form class="form"
+              action=""
+              method="post"
+              id="edit-form"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset" data-hasrequired="<?php echo __('* Required Fields') ?>">
+                <div class="field title required">
+                    <label class="label" for="title"><span><?php  echo __('Title') ?></span></label>
+                    <div class="control">
+                        <input name="data[title]" id="title" type="text" class="input-text" title="<?php  echo __('Title') ?>" data-validate="{required:true}" value="<?php echo $data['title']; ?>">
+                    </div>
+                </div>
+                <div class="field email required">
+                    <label class="label" for="email"><span><?php  echo __('Email') ?></span></label>
+                    <div class="control">
+                        <input name="data[email]" id="email" type="text" class="input-text" title="<?php  echo __('Email') ?>" data-validate="{required:true}" value="<?php echo $data['email']; ?>">
+                    </div>
+                </div>
+
+                <div class="field status required">
+                    <label class="label" for="status"><span><?php  echo __('Status') ?></span></label>
+                    <div class="control">
+                        <select name="data[IsActive]" id="status" class="input-text" title="<?php  echo __('Status') ?>">
+                            <option value="1" <?php echo $op1_select; ?> >Enabled</option>
+                            <option value="2" <?php echo $op2_select; ?> >Disabled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions-toolbar" align="left">
+                    <div class="primary"><input type="submit" class="action login primary" name="data[submit]" id="send2" value="<?php  echo __('Save') ?>"></div> 
+                    <div class="secondary"><a class="action remind" href="<?php echo $block->getListUrl(); ?>"><span><?php  echo __('Go back to list') ?></span></a></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
