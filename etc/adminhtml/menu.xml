@@ -3,6 +3,6 @@
     <menu>
         <add id="Excellence_Hello::hello" title="Table" module="Excellence_Table" sortOrder="15" dependsOnModule="Excellence_Table" resource="Excellence_Hello::hello"/>
         <add id="Excellence_Hello::hello_world" title="World" module="Excellence_Table" sortOrder="10" parent="Excellence_Hello::hello" resource="Excellence_Hello::hello" />
-        <add id="Excellence_Hello::hello_world_test1" title="Demo" module="Excellence_Table" sortOrder="10" parent="Excellence_Hello::hello_world" action="excellence1/Table/Index" resource="Excellence_Hello::hello_world_test1"/>
+        <add id="Excellence_Hello::hello_world_test1" title="Demo" module="Excellence_Table" sortOrder="10" parent="Excellence_Hello::hello_world" action="excellence1/Index/Index" resource="Excellence_Hello::hello_world_test1"/>
     </menu>
 </config>
