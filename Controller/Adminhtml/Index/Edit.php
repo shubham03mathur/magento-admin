@@ -23,7 +23,6 @@ class Edit extends \Magento\Backend\App\Action
     {
         
         $id = $this->getRequest()->getParam('id');
-        
         $model = $this->testFactory->create();
         if ($id) {
             $model->load($id);

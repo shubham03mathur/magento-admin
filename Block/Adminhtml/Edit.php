@@ -2,14 +2,7 @@
 namespace Excellence\Table\Block\Adminhtml;
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
-    
-
     protected $_coreRegistry = null;
-    /**
-     * @param \Magento\Backend\Block\Widget\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param array $data
-     */
     public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Magento\Framework\Registry $registry,
@@ -18,18 +11,13 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }
-    /**
-     * Initialize cms page edit block
-     *
-     * @return void
-     */
     protected function _construct()
     {
         $this->_objectId = 'page_id';
-        $this->_blockGroup = 'Excellence_hello';
+        $this->_blockGroup = 'Excellence_Table';
         $this->_controller = 'adminhtml';
         parent::_construct();
-        if ($this->_isAllowedAction('Excellence_Hello::save')) {
+        if ($this->_isAllowedAction('Excellence_Table::save')) {
             $this->buttonList->update('save', 'label', __('Save Page'));
             $this->buttonList->add(
                 'saveandcontinue',
@@ -47,17 +35,13 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         } else {
             $this->buttonList->remove('save');
         }
-        if ($this->_isAllowedAction('Excellence_Hello::page_delete')) {
+        if ($this->_isAllowedAction('Excellence_Table::page_delete')) {
             $this->buttonList->update('delete', 'label', __('Delete Page'));
         } else {
             $this->buttonList->remove('delete');
         }
     }
-    /**
-     * Retrieve text for header element depending on loaded page
-     *
-     * @return \Magento\Framework\Phrase
-     */
+    
     public function getHeaderText()
     {
         if ($this->_coreRegistry->registry('table_edit')->getId()) {
@@ -66,31 +50,17 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
             return __('New Page');
         }
     }
-    /**
-     * Check permission for passed action
-     *
-     * @param string $resourceId
-     * @return bool
-     */
+   
     protected function _isAllowedAction($resourceId)
     {
         return $this->_authorization->isAllowed($resourceId);
     }
-    /**
-     * Getter of url for "Save and Continue" button
-     * tab_id will be replaced by desired by JS later
-     *
-     * @return string
-     */
+    
     protected function _getSaveAndContinueUrl()
     {
         return $this->getUrl('excellence1/hello/save', ['_current' => true, 'back' => 'edit', 'active_tab' => '{{tab_id}}']);
     }
-    /**
-     * Prepare layout
-     *
-     * @return \Magento\Framework\View\Element\AbstractBlock
-     */
+    
     protected function _prepareLayout()
     {
         $this->_formScripts[] = "
