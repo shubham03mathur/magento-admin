@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Excellence\Table\Block\Adminhtml\Edit" name="excellence_test"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            
+            <block class="Excellence\Table\Block\Adminhtml\Edit\Tabs" name="excellence_test_edit_tabs">
+                <block class="Excellence\Table\Block\Adminhtml\Edit\Tab\Main" name="excellence_test_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section2</argument>
+                    <argument name="block" xsi:type="string">excellence_test_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

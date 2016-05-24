@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Adminhtml::admin">
-                <resource id="Excellence_Hello::hello" title="Hello" sortOrder="20">
+                <resource id="Excellence_Hello::hello" title="Table" sortOrder="20">
                     <resource id="Excellence_Hello::hello_world" title="World" sortOrder="10">
                         <resource id="Excellence_Hello::hello_world_test1" title="Demo" sortOrder="10">
                          
