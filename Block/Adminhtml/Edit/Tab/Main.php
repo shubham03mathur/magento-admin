@@ -16,17 +16,13 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
   
     protected function _prepareForm()
     {
-        /* @var $model \Magento\Cms\Model\Page */
+        
         $model = $this->_coreRegistry->registry('table_edit');
-        /*
-         * Checking if user have permissions to save information
-         */
         if ($this->_isAllowedAction('Excellence_Hello::save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;
         }
-        /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('table_');
         $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Customer Information')]);
@@ -59,44 +55,22 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         $this->setForm($form);
         return parent::_prepareForm();
     }
-    /**
-     * Prepare label for tab
-     *
-     * @return \Magento\Framework\Phrase
-     */
     public function getTabLabel()
     {
         return __('Test Information');
     }
-    /**
-     * Prepare title for tab
-     *
-     * @return \Magento\Framework\Phrase
-     */
     public function getTabTitle()
     {
         return __('Test Information');
     }
-    /**
-     * {@inheritdoc}
-     */
     public function canShowTab()
     {
         return true;
     }
-    /**
-     * {@inheritdoc}
-     */
     public function isHidden()
     {
         return false;
     }
-    /**
-     * Check permission for passed action
-     *
-     * @param string $resourceId
-     * @return bool
-     */
     protected function _isAllowedAction($resourceId)
     {
         return $this->_authorization->isAllowed($resourceId);

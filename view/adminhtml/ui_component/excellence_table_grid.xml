@@ -33,7 +33,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">entity_id</item>
+                      <item name="indexField" xsi:type="string">entity_id</item>
                     </item>
                 </item>
             </argument>
@@ -88,9 +88,11 @@
             <action name="delete">
                <argument name="data" xsi:type="array">
                    <item name="config" xsi:type="array">
-                       <item name="type" xsi:type="string">delete</item>
-                       <item name="label" xsi:type="string" translate="true">Delete</item>
-                       <item name="url" xsi:type="url" path="excellence1/index/massDelete"/>
+                      <item name="type" xsi:type="string">delete</item>
+                      <item name="label" xsi:type="string" translate="true">Delete</item>
+                      <item name="title" xsi:type="string" translate="true">Delete items</item>
+                      <item name="message" xsi:type="string" translate="true">Delete Selected Items?</item>
+                      <item name="url" xsi:type="url" path="excellence1/index/massDelete"/>
                    </item>
                </argument>
            </action>
@@ -111,7 +113,7 @@
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">entity_id</item>
+                  <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </selectionsColumn>

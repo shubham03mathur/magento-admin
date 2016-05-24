@@ -6,7 +6,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Excellence\Table\Model\ResourceModel\Test\CollectionFactory;
  
-class massDelete extends \Magento\Backend\App\Action
+class MassDelete extends \Magento\Backend\App\Action
 {
     protected $filter;
  
@@ -25,8 +25,7 @@ class massDelete extends \Magento\Backend\App\Action
         
         $collection = $this->filter->getCollection($this->collectionFactory->create());
         $itemDeleted = 0;
-        foreach ($collection->getItems() as $item){
-
+        foreach ($collection as $item){
             $item->delete();
             $itemDeleted++;
         }
